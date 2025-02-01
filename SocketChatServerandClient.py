@@ -15,3 +15,17 @@ while True:
     print("Client:", data.decode())
     conn.sendall(b"Message received")
 conn.close()
+
+// client 
+
+import socket
+
+client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+client.connect(("localhost", 12345))
+
+client.sendall(b"Hello, Server!")
+response = client.recv(1024)
+print("Server:", response.decode())
+
+client.close()
+
